@@ -30,6 +30,8 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "antd": "^4.2.4",
+    "dayjs": "^1.8.27",
     "next": "^9.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
