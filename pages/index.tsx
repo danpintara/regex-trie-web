@@ -1,5 +1,6 @@
 import { Input, Space, Switch } from "antd"
 import React, { useState } from "react"
+import Header from "../components/Header"
 import { generate } from "../lib/generator"
 
 function HomePage() {
@@ -16,7 +17,7 @@ function HomePage() {
         padding: 32,
       }}
     >
-      <h1>Regular Expression from Trie</h1>
+      <Header />
       <div>Input:</div>
       <Input.TextArea rows={4} onChange={(e) => setValue(e.target.value)} />
       <div style={{ display: "flex", justifyItems: "center" }}>
