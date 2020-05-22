@@ -18,3 +18,13 @@ test("generate input returns regular expression", () => {
 
   expect(generate(words)).toBe(trie.toString())
 })
+
+test("generate regular expression with capturing group if configured", () => {
+  const prefix = lorem.word()
+  const words = lorem
+    .words()
+    .split(" ")
+    .map((word) => `${prefix}${word}`)
+
+  expect(generate(words, false)).not.toContain("(?:")
+})
