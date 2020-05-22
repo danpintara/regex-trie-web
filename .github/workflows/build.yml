@@ -37,6 +37,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-next-
 
+      - name: Test
+        run: pnpm run test:ci
+
       - name: Build
         run: pnpm run build
 
