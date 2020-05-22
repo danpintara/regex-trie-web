@@ -1,20 +1,6 @@
 import { Input, Space, Switch } from "antd"
-import escapeStringRegexp from "escape-string-regexp"
 import React, { useState } from "react"
-import RegexTrie from "regex-trie"
-
-const nonCapturingRegexp = new RegExp(escapeStringRegexp("(?:"), "g")
-
-function calculateRegex(value: string, useNonCapturingGroup: boolean) {
-  const trie = new RegexTrie()
-  value.split("\n").forEach((line) => trie.add(line))
-
-  let result: string | undefined = trie.toString()
-  if (!useNonCapturingGroup) {
-    result = result?.replace(nonCapturingRegexp, "(")
-  }
-  return result
-}
+import { generate } from "../lib/generator"
 
 function HomePage() {
   const [value, setValue] = useState("")
@@ -42,7 +28,9 @@ function HomePage() {
       </div>
       <div>Output:</div>
       <div>
-        {calculateRegex(value, useNonCapturingGroup) ?? <i>(no result)</i>}
+        {generate(value.split("\n"), useNonCapturingGroup) ?? (
+          <i>(no result)</i>
+        )}
       </div>
     </Space>
   )
