@@ -1,3 +1,8 @@
+import RegexTrie from "regex-trie"
+
 export function generate(lines: string[]) {
-  return lines[0]
+  const trie = RegexTrie()
+  lines.forEach((line) => trie.add(line))
+
+  return trie.toString()
 }
