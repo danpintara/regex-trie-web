@@ -2,13 +2,15 @@ import { Input, Space, Switch } from "antd"
 import React, { useState } from "react"
 import RegexTrie from "regex-trie"
 
+const nonCapturingRegexp = new RegExp("(?:", "g")
+
 function calculateRegex(value: string, useNonCapturingGroup: boolean) {
   const trie = new RegexTrie()
   value.split("\n").forEach((line) => trie.add(line))
 
   let result: string | undefined = trie.toString()
   if (!useNonCapturingGroup) {
-    result = result?.replace("(?:", "(")
+    result = result?.replace(nonCapturingRegexp, "(")
   }
   return result
 }
