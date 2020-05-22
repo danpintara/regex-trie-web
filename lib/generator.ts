@@ -3,11 +3,14 @@ import RegexTrie from "regex-trie"
 
 const nonCapturingRegexp = new RegExp(escapeStringRegexp("(?:"), "g")
 
-export function generate(lines: string[], useNonCapturingGroup = true) {
+function processRegexTrie(lines: string[]): string | undefined {
   const trie = RegexTrie()
   lines.forEach((line) => trie.add(line))
+  return trie.toString()
+}
 
-  let result = trie.toString()
+export function generate(lines: string[], useNonCapturingGroup = true) {
+  let result = processRegexTrie(lines)
   if (!useNonCapturingGroup) {
     result = result?.replace(nonCapturingRegexp, "(")
   }
