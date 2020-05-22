@@ -1,6 +1,7 @@
 dependencies:
   antd: 4.2.4_74b65dd3c828010c39c05cee1d7790e9
   dayjs: 1.8.27
+  escape-string-regexp: 4.0.0
   next: 9.4.1_af9fa062b6a4bfe9ae4185908f81044b
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
@@ -3247,6 +3248,12 @@ packages:
       node: '>=0.8.0'
     resolution:
       integrity: sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
+  /escape-string-regexp/4.0.0:
+    dev: false
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==
   /eslint-config-prettier/6.11.0_eslint@6.8.0:
     dependencies:
       eslint: 6.8.0
@@ -8323,6 +8330,7 @@ specifiers:
   '@typescript-eslint/parser': ^2.34.0
   antd: ^4.2.4
   dayjs: ^1.8.27
+  escape-string-regexp: ^4.0.0
   eslint: ^6.8.0
   eslint-config-prettier: ^6.11.0
   eslint-plugin-prettier: ^3.1.3

@@ -1,8 +1,9 @@
 import { Input, Space, Switch } from "antd"
+import escapeStringRegexp from "escape-string-regexp"
 import React, { useState } from "react"
 import RegexTrie from "regex-trie"
 
-const nonCapturingRegexp = new RegExp("(?:", "g")
+const nonCapturingRegexp = new RegExp(escapeStringRegexp("(?:"), "g")
 
 function calculateRegex(value: string, useNonCapturingGroup: boolean) {
   const trie = new RegexTrie()
