@@ -12,7 +12,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build && next export",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
