@@ -1,6 +1,7 @@
-import { Input, Space, Switch } from "antd"
+import { Space, Switch } from "antd"
 import React, { useState } from "react"
 import Header from "../components/Header"
+import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
 
 function HomePage() {
@@ -19,7 +20,7 @@ function HomePage() {
     >
       <Header />
       <div>Input:</div>
-      <Input.TextArea rows={4} onChange={(e) => setValue(e.target.value)} />
+      <TextInput value={value} onChange={setValue} />
       <div style={{ display: "flex", justifyItems: "center" }}>
         Use non-capturing group&nbsp;&nbsp;
         <Switch
