@@ -5,6 +5,7 @@ dependencies:
   next: 9.4.1_af9fa062b6a4bfe9ae4185908f81044b
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
+  react-github-fork-ribbon: 0.6.0_react@16.13.1
   regex-trie: 1.0.4
 devDependencies:
   '@commitlint/cli': 8.3.5
@@ -8482,6 +8483,16 @@ packages:
       react: ^16.13.1
     resolution:
       integrity: sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+  /react-github-fork-ribbon/0.6.0_react@16.13.1:
+    dependencies:
+      react: 16.13.1
+    dev: false
+    engines:
+      node: '>=0.10.x'
+    peerDependencies:
+      react: ^0.14.0 || ^15.0.0 || ^16.0.0
+    resolution:
+      integrity: sha512-lmobEGwg1k/JGMJMbiWNh3dd+5HUtePVqUu1LPr5L65MiK6mnn7ZgkGpFYXLijPxO9hD7x+f9qUrEzeazQdx2g==
   /react-is/16.13.1:
     resolution:
       integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
@@ -10610,6 +10621,7 @@ specifiers:
   prettier: ^2.0.5
   react: ^16.13.1
   react-dom: ^16.13.1
+  react-github-fork-ribbon: ^0.6.0
   regex-trie: ^1.0.4
   sinon: ^9.0.2
   ts-jest: ^26.0.0

@@ -49,6 +49,7 @@
     "next": "^9.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-github-fork-ribbon": "^0.6.0",
     "regex-trie": "^1.0.4"
   }
 }
