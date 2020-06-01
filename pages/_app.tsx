@@ -20,7 +20,9 @@ class MainApp extends App {
     return (
       <React.Fragment>
         <ForkRibbon />
-        <Component {...pageProps} />
+        <div style={{ padding: 32 }}>
+          <Component {...pageProps} />
+        </div>
       </React.Fragment>
     )
   }

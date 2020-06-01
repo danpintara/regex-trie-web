@@ -16,7 +16,6 @@ function HomePage() {
         style={{
           alignItems: "center",
           display: "flex",
-          padding: 32,
         }}
       >
         <Header />
