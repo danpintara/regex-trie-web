@@ -8,3 +8,8 @@ test("Text value is shown on screen", () => {
   const dom = shallow(<OutputView value={value} />)
   expect(dom.text()).toContain(value)
 })
+
+test("No input is shown on screen", () => {
+  const dom = shallow(<OutputView />)
+  expect(dom.contains(<i>(no input)</i>)).toBeTruthy()
+})
