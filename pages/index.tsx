@@ -1,5 +1,6 @@
 import { Space, Switch } from "antd"
 import React, { useState } from "react"
+import OutputView from "../components/OutputView"
 import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
 
@@ -26,11 +27,7 @@ function HomePage() {
         />
       </div>
       <div>Output:</div>
-      <div>
-        {generate(value.split("\n"), useNonCapturingGroup) ?? (
-          <i>(no result)</i>
-        )}
-      </div>
+      <OutputView value={generate(value.split("\n"), useNonCapturingGroup)} />
     </Space>
   )
 }
