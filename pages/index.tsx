@@ -1,6 +1,5 @@
 import { Space, Switch } from "antd"
 import React, { useState } from "react"
-import Header from "../components/Header"
 import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
 
@@ -18,7 +17,6 @@ function HomePage() {
           display: "flex",
         }}
       >
-        <Header />
         <div>Input:</div>
         <TextInput value={value} onChange={setValue} />
         <div style={{ display: "flex", justifyItems: "center" }}>

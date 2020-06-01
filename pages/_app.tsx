@@ -20,7 +20,17 @@ class MainApp extends App {
     return (
       <React.Fragment>
         <ForkRibbon />
-        <div style={{ padding: 32 }}>
+        <div
+          style={{
+            padding: 32,
+            display: "flex",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <h1 style={{ width: "75%", textAlign: "center", marginBottom: 24 }}>
+            Regular Expression from Trie
+          </h1>
           <Component {...pageProps} />
         </div>
       </React.Fragment>
