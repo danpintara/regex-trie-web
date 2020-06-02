@@ -4,7 +4,7 @@ import OutputView from "../components/OutputView"
 import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
 
-function HomePage() {
+export default function index() {
   const [value, setValue] = useState("")
   const [useNonCapturingGroup, setUseNonCapturingGroup] = useState(true)
 
@@ -31,5 +31,3 @@ function HomePage() {
     </Space>
   )
 }
-
-export default HomePage
