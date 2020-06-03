@@ -2,10 +2,10 @@ import { Switch } from "antd"
 import { mount, shallow } from "enzyme"
 import { lorem } from "faker"
 import React from "react"
-import OutputView from "../components/OutputView"
-import TextInput from "../components/TextInput"
-import { generate } from "../lib/generator"
-import IndexPage from "./index"
+import OutputView from "../../components/OutputView"
+import TextInput from "../../components/TextInput"
+import { generate } from "../../lib/generator"
+import IndexPage from "../../pages/index"
 
 test("Use non-capturing group defaults to true", () => {
   const dom = shallow(<IndexPage />)
