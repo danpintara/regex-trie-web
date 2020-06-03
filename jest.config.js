@@ -8,6 +8,6 @@ module.exports = {
       tsConfig: "<rootDir>/tsconfig.jest.json",
     },
   },
-  setupFilesAfterEnv: ["<rootDir>/test/setupTests.ts"],
+  setupFilesAfterEnv: ["<rootDir>/tests/setupTests.ts"],
   testPathIgnorePatterns: ["./.next/", "./node_modules/"],
 }
