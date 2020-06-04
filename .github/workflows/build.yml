@@ -42,6 +42,8 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          BASE_PATH: /regex-trie-web
 
       - name: Publish
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

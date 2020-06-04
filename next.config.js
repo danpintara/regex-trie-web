@@ -1,5 +1,5 @@
-const debug = process.env.NODE_ENV !== "production"
-
 module.exports = {
-  assetPrefix: !debug ? "/regex-trie-web/" : "",
+  experimental: {
+    basePath: process.env.BASE_PATH ?? "",
+  },
 }
