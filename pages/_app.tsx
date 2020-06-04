@@ -3,6 +3,7 @@ import App from "next/app"
 import Link from "next/link"
 import React from "react"
 import GitHubForkRibbon from "react-github-fork-ribbon"
+import NavPill from "../components/NavPill"
 
 function ForkRibbon() {
   return (
@@ -17,10 +18,10 @@ function ForkRibbon() {
 
 function TabNavigation() {
   return (
-    <div>
+    <NavPill>
       <Link href="/">Home</Link>&nbsp;&nbsp;
       <Link href="/about">About</Link>
-    </div>
+    </NavPill>
   )
 }
 
