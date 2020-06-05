@@ -6,6 +6,7 @@ dependencies:
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
   react-github-fork-ribbon: 0.6.0_react@16.13.1
+  react-measure: 2.3.0_react-dom@16.13.1+react@16.13.1
   regex-trie: 1.0.4
 devDependencies:
   '@commitlint/cli': 8.3.5
@@ -15,6 +16,7 @@ devDependencies:
   '@types/jest': 25.2.3
   '@types/node': 14.0.4
   '@types/react': 16.9.35
+  '@types/react-measure': 2.0.6
   '@types/sinon': 9.0.4
   '@typescript-eslint/eslint-plugin': 2.34.0_4d7b57a2de70d5f860ec42d3f1ecdb5d
   '@typescript-eslint/parser': 2.34.0_eslint@6.8.0+typescript@3.9.3
@@ -1182,6 +1184,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-6toWAfaALQjt3KMZQc6fABqZwUDDuWzz+cAfPhqyEnzxvdWOAkjwPNxgF8xlmo7OWLsSjaKjsskpKHRLaMArOA==
+  /@babel/runtime/7.10.2:
+    dependencies:
+      regenerator-runtime: 0.13.5
+    dev: false
+    resolution:
+      integrity: sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
   /@babel/runtime/7.9.6:
     dependencies:
       regenerator-runtime: 0.13.5
@@ -1787,6 +1795,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
+  /@types/react-measure/2.0.6:
+    dependencies:
+      '@types/react': 16.9.35
+    dev: true
+    resolution:
+      integrity: sha512-FxAwgDVKvxm4SPXu24x9cwzsty8x33UueazHcpxM1UWZlGJI57yIHM2djE3xUJhYVxuzNzi4E8UL3kmCkdh+4A==
   /@types/react/16.9.35:
     dependencies:
       '@types/prop-types': 15.7.3
@@ -4714,6 +4728,10 @@ packages:
       node: 6.* || 8.* || >= 10.*
     resolution:
       integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
+  /get-node-dimensions/1.2.1:
+    dev: false
+    resolution:
+      integrity: sha512-2MSPMu7S1iOTL+BOa6K1S62hB2zUAYNF/lV0gSVlOaacd087lc6nR1H1r0e3B1CerTo+RceOmi1iJW+vp21xcQ==
   /get-own-enumerable-property-symbols/3.0.2:
     dev: true
     resolution:
@@ -8500,6 +8518,20 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  /react-measure/2.3.0_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@babel/runtime': 7.10.2
+      get-node-dimensions: 1.2.1
+      prop-types: 15.7.2
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
+      resize-observer-polyfill: 1.5.1
+    dev: false
+    peerDependencies:
+      react: '>0.13.0'
+      react-dom: '>0.13.0'
+    resolution:
+      integrity: sha512-dwAvmiOeblj5Dvpnk8Jm7Q8B4THF/f1l1HtKVi0XDecsG6LXwGvzV5R1H32kq3TW6RW64OAf5aoQxpIgLa4z8A==
   /react-refresh/0.8.2:
     dev: false
     engines:
@@ -10601,6 +10633,7 @@ specifiers:
   '@types/jest': ^25.2.3
   '@types/node': ^14.0.4
   '@types/react': ^16.9.35
+  '@types/react-measure': ^2.0.6
   '@types/sinon': ^9.0.4
   '@typescript-eslint/eslint-plugin': ^2.34.0
   '@typescript-eslint/parser': ^2.34.0
@@ -10622,6 +10655,7 @@ specifiers:
   react: ^16.13.1
   react-dom: ^16.13.1
   react-github-fork-ribbon: ^0.6.0
+  react-measure: ^2.3.0
   regex-trie: ^1.0.4
   sinon: ^9.0.2
   ts-jest: ^26.0.0

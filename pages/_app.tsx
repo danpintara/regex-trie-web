@@ -1,6 +1,7 @@
 import "antd/dist/antd.css"
 import App from "next/app"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import React from "react"
 import GitHubForkRibbon from "react-github-fork-ribbon"
 import NavPill from "../components/NavPill"
@@ -17,10 +18,36 @@ function ForkRibbon() {
 }
 
 function TabNavigation() {
+  const router = useRouter()
+  const pathKeyMapping = {
+    "/": "home",
+    "/about": "about",
+  }
+
+  const activeKey = pathKeyMapping[router.pathname]
+
   return (
-    <NavPill>
-      <Link href="/">Home</Link>&nbsp;&nbsp;
-      <Link href="/about">About</Link>
+    <NavPill activeKey={activeKey}>
+      <Link key="home" href="/">
+        <a className={activeKey == "home" ? "selected" : ""}>Home</a>
+      </Link>
+      <span style={{ display: "inline-block", width: 16 }} />
+      <Link key="about" href="/about">
+        <a className={activeKey == "about" ? "selected" : ""}>About</a>
+      </Link>
+      <style jsx>
+        {`
+          a {
+            color: #7f7f7f;
+          }
+          a:hover {
+            color: #000000;
+          }
+          .selected {
+            color: #000000;
+          }
+        `}
+      </style>
     </NavPill>
   )
 }

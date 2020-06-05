@@ -24,6 +24,7 @@
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.4",
     "@types/react": "^16.9.35",
+    "@types/react-measure": "^2.0.6",
     "@types/sinon": "^9.0.4",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
@@ -50,6 +51,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-github-fork-ribbon": "^0.6.0",
+    "react-measure": "^2.3.0",
     "regex-trie": "^1.0.4"
   }
 }
