@@ -19,12 +19,20 @@ function ForkRibbon() {
 
 function TabNavigation() {
   const router = useRouter()
-  const pathKeyMapping = {
-    "/": "home",
-    "/about": "about",
-  }
+  const pathKeyMapping = [
+    {
+      path: "/",
+      tag: "home",
+    },
+    {
+      path: "/about",
+      tag: "about",
+    },
+  ]
 
-  const activeKey = pathKeyMapping[router.pathname]
+  const activeKey = pathKeyMapping.find((mapping) =>
+    router.pathname.endsWith(mapping.path)
+  )?.tag
 
   return (
     <NavPill activeKey={activeKey}>
