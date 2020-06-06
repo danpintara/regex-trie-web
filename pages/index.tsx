@@ -17,7 +17,7 @@ export default function index() {
         display: "flex",
       }}
     >
-      <div>Input:</div>
+      <div>Texts: (separated in lines)</div>
       <TextInput value={value} onChange={setValue} />
       <div style={{ display: "flex", justifyItems: "center" }}>
         Use non-capturing group&nbsp;&nbsp;
@@ -26,7 +26,7 @@ export default function index() {
           onChange={(val) => setUseNonCapturingGroup(val)}
         />
       </div>
-      <div>Output:</div>
+      <div>Regular expression:</div>
       <OutputView value={generate(value.split("\n"), useNonCapturingGroup)} />
     </Space>
   )
