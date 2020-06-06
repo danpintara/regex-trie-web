@@ -48,6 +48,7 @@
     "dayjs": "^1.8.27",
     "escape-string-regexp": "^4.0.0",
     "next": "^9.4.1",
+    "next-page-transitions": "^1.0.0-beta.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-github-fork-ribbon": "^0.6.0",

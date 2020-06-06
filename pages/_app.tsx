@@ -1,4 +1,5 @@
 import "antd/dist/antd.css"
+import { PageTransition } from "next-page-transitions"
 import App from "next/app"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -81,7 +82,25 @@ class MainApp extends App {
           <div style={{ marginBottom: 24 }}>
             <TabNavigation />
           </div>
-          <Component {...pageProps} />
+          <PageTransition timeout={300} classNames="page-transition">
+            <Component {...pageProps} />
+          </PageTransition>
+          <style jsx global>{`
+            .page-transition-enter {
+              opacity: 0;
+            }
+            .page-transition-enter-active {
+              opacity: 1;
+              transition: opacity 300ms;
+            }
+            .page-transition-exit {
+              opacity: 1;
+            }
+            .page-transition-exit-active {
+              opacity: 0;
+              transition: opacity 300ms;
+            }
+          `}</style>
         </div>
       </React.Fragment>
     )
