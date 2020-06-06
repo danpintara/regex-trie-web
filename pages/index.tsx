@@ -22,7 +22,9 @@ export default function index() {
         display: "flex",
       }}
     >
-      <div>Texts: (separated in lines)</div>
+      <div>
+        Texts: <i>(separated in lines)</i>
+      </div>
       <TextInput value={value} sampleValue={sampleInput} onChange={setValue} />
       <div style={{ display: "flex", justifyItems: "center" }}>
         Use non-capturing group&nbsp;&nbsp;
