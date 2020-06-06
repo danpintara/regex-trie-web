@@ -40,7 +40,7 @@ function TabNavigation() {
       <Link key="home" href="/">
         <a className={activeKey == "home" ? "selected" : ""}>Home</a>
       </Link>
-      <span style={{ display: "inline-block", width: 16 }} />
+      <span style={{ display: "inline-block", width: 24 }} />
       <Link key="about" href="/about">
         <a className={activeKey == "about" ? "selected" : ""}>About</a>
       </Link>
@@ -71,15 +71,30 @@ class MainApp extends App {
         <div
           style={{
             padding: 32,
-            display: "flex",
-            alignItems: "center",
-            flexDirection: "column",
+            margin: "auto",
+            maxWidth: 720,
           }}
         >
-          <h1 style={{ width: "75%", textAlign: "center", marginBottom: 24 }}>
+          <h1
+            style={{
+              width: "100%",
+              textAlign: "center",
+              paddingLeft: 72,
+              paddingRight: 72,
+              marginBottom: 24,
+            }}
+          >
             Regular Expression from Trie
           </h1>
-          <div style={{ marginBottom: 24 }}>
+          <div
+            style={{
+              width: "100%",
+              marginBottom: 32,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <TabNavigation />
           </div>
           <PageTransition timeout={300} classNames="page-transition">
