@@ -45,6 +45,7 @@ jobs:
         run: pnpm run build
         env:
           BASE_PATH: /regex-trie-web
+          REPOSITORY_URL: https://github.com/danpintara/regex-trie-web
 
       - name: Publish
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'

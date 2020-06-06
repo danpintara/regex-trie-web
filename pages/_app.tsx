@@ -8,11 +8,9 @@ import GitHubForkRibbon from "react-github-fork-ribbon"
 import NavPill from "../components/NavPill"
 
 function ForkRibbon() {
+  const repositoryUrl = process.env.REPOSITORY_URL
   return (
-    <GitHubForkRibbon
-      href="https://github.com/danpintara/regex-trie-web"
-      target="_blank"
-    >
+    <GitHubForkRibbon href={repositoryUrl} target="_blank">
       Fork me on GitHub
     </GitHubForkRibbon>
   )
