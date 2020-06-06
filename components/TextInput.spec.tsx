@@ -18,3 +18,9 @@ test("TextArea onChange callback", () => {
     .simulate("change", { target: { value } })
   expect(onChangeCallback.calledWith(value)).toBeTruthy()
 })
+
+test("Sample value", () => {
+  const sampleValue = lorem.words()
+  const dom = shallow(<TextInput sampleValue={sampleValue} />)
+  expect(dom.first().prop("placeholder")).toEqual(sampleValue)
+})
