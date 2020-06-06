@@ -9,7 +9,8 @@ test("Text value is shown on screen", () => {
   expect(dom.text()).toContain(value)
 })
 
-test("No input is shown on screen", () => {
-  const dom = shallow(<OutputView />)
-  expect(dom.contains(<i>(no input)</i>)).toBeTruthy()
+test("Sample is shown if value is missing", () => {
+  const sampleValue = lorem.words()
+  const dom = shallow(<OutputView sampleValue={sampleValue} />)
+  expect(dom.contains(sampleValue)).toBeTruthy()
 })
