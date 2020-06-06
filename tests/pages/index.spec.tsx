@@ -30,3 +30,8 @@ test("Regular expression from input with capturing group", () => {
     generate(input.split("\n"), false)
   )
 })
+
+test("Show sample input", () => {
+  const dom = mount(<IndexPage />)
+  expect(dom.find(TextInput).prop("sampleValue")).not.toBeFalsy()
+})

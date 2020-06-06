@@ -4,6 +4,11 @@ import OutputView from "../components/OutputView"
 import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
 
+const sampleInput = `
+abcd
+abde
+`.trim()
+
 export default function index() {
   const [value, setValue] = useState("")
   const [useNonCapturingGroup, setUseNonCapturingGroup] = useState(true)
@@ -18,7 +23,7 @@ export default function index() {
       }}
     >
       <div>Texts: (separated in lines)</div>
-      <TextInput value={value} onChange={setValue} />
+      <TextInput value={value} sampleValue={sampleInput} onChange={setValue} />
       <div style={{ display: "flex", justifyItems: "center" }}>
         Use non-capturing group&nbsp;&nbsp;
         <Switch
