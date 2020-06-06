@@ -34,7 +34,7 @@ export default function index() {
       <div>Regular expression:</div>
       <OutputView
         value={generate(value.split("\n"), useNonCapturingGroup)}
-        sampleValue={generate(sampleInput.split("\n"))}
+        sampleValue={generate(sampleInput.split("\n"), useNonCapturingGroup)}
       />
     </Space>
   )
