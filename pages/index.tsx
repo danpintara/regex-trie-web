@@ -32,7 +32,10 @@ export default function index() {
         />
       </div>
       <div>Regular expression:</div>
-      <OutputView value={generate(value.split("\n"), useNonCapturingGroup)} />
+      <OutputView
+        value={generate(value.split("\n"), useNonCapturingGroup)}
+        sampleValue={generate(sampleInput.split("\n"))}
+      />
     </Space>
   )
 }

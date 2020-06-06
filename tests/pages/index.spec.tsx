@@ -35,3 +35,11 @@ test("Show sample input", () => {
   const dom = mount(<IndexPage />)
   expect(dom.find(TextInput).prop("sampleValue")).not.toBeFalsy()
 })
+
+test("Show sample output", () => {
+  const dom = mount(<IndexPage />)
+  const sampleInput = dom.find(TextInput).prop("sampleValue")
+  expect(dom.find(OutputView).prop("sampleValue")).toEqual(
+    generate(sampleInput.split("\n"), true)
+  )
+})
