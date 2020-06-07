@@ -2,11 +2,19 @@ import { CopyOutlined } from "@ant-design/icons"
 import { Button, Tooltip } from "antd"
 import { writeText } from "clipboard-polyfill"
 import React, { FC, useEffect, useState } from "react"
+import { CSSTransition } from "react-transition-group"
+import css from "styled-jsx/css"
 
 interface Props {
   value?: string
   sampleValue?: string
 }
+
+const copyButtonStyle = css.resolve`
+  .copy-btn {
+    margin-left: 8px;
+  }
+`
 
 const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   const [status, setStatus] = useState<boolean>(false)
@@ -22,44 +30,53 @@ const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   })
 
   return (
-    <span className="span-copy">
-      <span>
-        <Tooltip
-          title={status ? "Copied!" : "Can't copy!"}
-          visible={!!visible}
-          trigger={[]}
-        >
-          <Button
-            id="btn-copy"
-            onClick={async () => {
-              try {
-                await writeText(props.valueToCopy)
-                setStatus(true)
-              } catch (e) {
-                console.log("Unable to copy: " + e)
-                setStatus(false)
-              } finally {
-                setVisible({})
-              }
-            }}
-          >
-            <CopyOutlined />
-          </Button>
-        </Tooltip>
-      </span>
-      <style jsx>
-        {`
-          .span-copy {
-            width: 0;
+    <Tooltip
+      title={status ? "Copied!" : "Can't copy!"}
+      visible={!!visible}
+      trigger={[]}
+    >
+      <Button
+        id="btn-copy"
+        className={`${copyButtonStyle.className} copy-btn`}
+        onClick={async () => {
+          try {
+            await writeText(props.valueToCopy)
+            setStatus(true)
+          } catch (e) {
+            console.log("Unable to copy: " + e)
+            setStatus(false)
+          } finally {
+            setVisible({})
           }
-          .span-copy > span {
-            margin-left: 8px;
-          }
-        `}
-      </style>
-    </span>
+        }}
+      >
+        <CopyOutlined />
+        {copyButtonStyle.styles}
+      </Button>
+    </Tooltip>
   )
 }
+
+const animatedButtonStyle = css.resolve`
+  .anim-enter {
+    opacity: 0;
+    transform: translate(-8px, 0);
+  }
+  .anim-enter-active {
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all 0.3s;
+  }
+  .anim-exit {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  .anim-exit-active {
+    opacity: 0;
+    transform: translate(-8px, 0);
+    transition: all 0.3s;
+  }
+`
 
 const OutputView: FC<Props> = function (props) {
   return (
@@ -67,11 +84,24 @@ const OutputView: FC<Props> = function (props) {
       <pre className={props.value ? null : "pre-sample"}>
         {props.value ?? props.sampleValue}
       </pre>
-      {props.value ? <CopyButton valueToCopy={props.value} /> : null}
+      <span className="container-copy">
+        <CSSTransition
+          timeout={300}
+          in={!!props.value}
+          classNames={`${animatedButtonStyle.className} anim`}
+          unmountOnExit
+        >
+          <CopyButton valueToCopy={props.value} />
+        </CSSTransition>
+      </span>
+      {animatedButtonStyle.styles}
       <style jsx>
         {`
           .container {
             display: flex;
+          }
+          .container-copy {
+            width: 0;
           }
           pre {
             padding: 8px;
