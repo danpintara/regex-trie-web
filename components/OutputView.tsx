@@ -1,50 +1,60 @@
 import { CopyOutlined } from "@ant-design/icons"
 import { Button } from "antd"
-import React from "react"
+import React, { FC } from "react"
 
 interface Props {
   value?: string
   sampleValue?: string
 }
 
-const OutputView: React.FunctionComponent<Props> = function (props) {
+const CopyButton: FC<{ valueToCopy: string }> = function () {
+  return (
+    <span className="span-copy">
+      <span>
+        <Button id="btn-copy">
+          <CopyOutlined />
+        </Button>
+      </span>
+      <style jsx>
+        {`
+          .span-copy {
+            width: 0;
+          }
+          .span-copy > span {
+            margin-left: 8px;
+          }
+        `}
+      </style>
+    </span>
+  )
+}
+
+const OutputView: FC<Props> = function (props) {
   return (
     <div className="container">
       <pre className={props.value ? null : "pre-sample"}>
         {props.value ?? props.sampleValue}
       </pre>
-      {props.value ? (
-        <span className="span-copy">
-          <span>
-            <Button id="btn-copy">
-              <CopyOutlined />
-            </Button>
-          </span>
-        </span>
-      ) : null}
-      <style jsx>{`
-        .container {
-          display: flex;
-        }
-        .span-copy {
-          width: 0;
-        }
-        .span-copy > span {
-          margin-left: 8px;
-        }
-        pre {
-          padding: 8px;
-          background-color: #f0f0f0;
-          width: 300px;
-          max-width: 400px;
-          min-height: 200px;
-          white-space: pre-wrap;
-          overflow-wrap: break-word;
-        }
-        .pre-sample {
-          color: #b0b0b0;
-        }
-      `}</style>
+      {props.value ? <CopyButton valueToCopy={props.value} /> : null}
+      <style jsx>
+        {`
+          .container {
+            display: flex;
+          }
+          pre {
+            padding: 8px;
+            background-color: #f0f0f0;
+            width: 300px;
+            max-width: 400px;
+            min-height: 200px;
+            white-space: pre-wrap;
+            overflow-wrap: break-word;
+          }
+          .pre-sample {
+            color: #b0b0b0;
+          }
+        `}
+      </style>
     </div>
   )
 }
