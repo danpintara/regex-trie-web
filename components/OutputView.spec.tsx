@@ -1,8 +1,10 @@
-import clipboard from "clipboard-polyfill"
+import { Tooltip } from "antd"
+import * as clipboard from "clipboard-polyfill"
 import { mount, shallow } from "enzyme"
 import { lorem } from "faker"
 import React from "react"
-import { stub } from "sinon"
+import { act } from "react-dom/test-utils"
+import { createSandbox } from "sinon"
 import OutputView from "./OutputView"
 
 test("Text value is shown on screen", () => {
@@ -27,10 +29,32 @@ test("Hide copy button if value is missing", () => {
   expect(dom.exists("#btn-copy")).toBeFalsy()
 })
 
-test("Copy button functionality", () => {
+const sandbox = createSandbox()
+
+beforeEach(() => sandbox.restore())
+
+test("Copy button functionality", async () => {
   const value = lorem.words()
-  const writeTextStub = stub(clipboard, "writeText").resolves()
+  const writeTextStub = sandbox.stub(clipboard, "writeText")
   const dom = mount(<OutputView value={value} />)
   dom.find("#btn-copy").first().simulate("click")
+  await act(async () => {
+    writeTextStub.resolves()
+  })
   expect(writeTextStub.calledWith(value)).toBeTruthy()
+})
+
+test("Copy success message", async () => {
+  const writeTextStub = sandbox.stub(clipboard, "writeText")
+  const dom = mount(<OutputView value={lorem.words()} />)
+  dom.find("#btn-copy").first().simulate("click")
+  await act(async () => {
+    writeTextStub.resolves()
+  })
+  dom.update()
+  const tooltip = dom.find(Tooltip)
+  expect([tooltip.prop("visible"), tooltip.prop("title")]).toEqual([
+    true,
+    "Copied!",
+  ])
 })

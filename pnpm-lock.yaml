@@ -21,6 +21,7 @@ devDependencies:
   '@types/jest': 25.2.3
   '@types/node': 14.0.4
   '@types/react': 16.9.35
+  '@types/react-dom': 16.9.8
   '@types/react-measure': 2.0.6
   '@types/sinon': 9.0.4
   '@typescript-eslint/eslint-plugin': 2.34.0_4d7b57a2de70d5f860ec42d3f1ecdb5d
@@ -2054,6 +2055,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
+  /@types/react-dom/16.9.8:
+    dependencies:
+      '@types/react': 16.9.35
+    dev: true
+    resolution:
+      integrity: sha512-ykkPQ+5nFknnlU6lDd947WbQ6TE3NNzbQAkInC2EKY1qeYdTKp7onFusmYZb+ityzx2YviqT6BXSu+LyWWJwcA==
   /@types/react-measure/2.0.6:
     dependencies:
       '@types/react': 16.9.35
@@ -11337,6 +11344,7 @@ specifiers:
   '@types/jest': ^25.2.3
   '@types/node': ^14.0.4
   '@types/react': ^16.9.35
+  '@types/react-dom': ^16.9.8
   '@types/react-measure': ^2.0.6
   '@types/sinon': ^9.0.4
   '@typescript-eslint/eslint-plugin': ^2.34.0
