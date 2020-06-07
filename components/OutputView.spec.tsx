@@ -30,31 +30,59 @@ test("Hide copy button if value is missing", () => {
 })
 
 const sandbox = createSandbox()
-
 beforeEach(() => sandbox.restore())
 
 test("Copy button functionality", async () => {
   const value = lorem.words()
-  const writeTextStub = sandbox.stub(clipboard, "writeText")
+  let resolveClipboardPromise: () => void
+  const clipboardPromise = new Promise<void>((resolve) => {
+    resolveClipboardPromise = resolve
+  })
+  const writeTextStub = sandbox
+    .stub(clipboard, "writeText")
+    .returns(clipboardPromise)
   const dom = mount(<OutputView value={value} />)
   dom.find("#btn-copy").first().simulate("click")
   await act(async () => {
-    writeTextStub.resolves()
+    resolveClipboardPromise()
   })
   expect(writeTextStub.calledWith(value)).toBeTruthy()
 })
 
 test("Copy success message", async () => {
-  const writeTextStub = sandbox.stub(clipboard, "writeText")
+  let resolveClipboardPromise: () => void
+  const clipboardPromise = new Promise<void>((resolve) => {
+    resolveClipboardPromise = resolve
+  })
+  sandbox.stub(clipboard, "writeText").returns(clipboardPromise)
   const dom = mount(<OutputView value={lorem.words()} />)
   dom.find("#btn-copy").first().simulate("click")
   await act(async () => {
-    writeTextStub.resolves()
+    resolveClipboardPromise()
   })
   dom.update()
   const tooltip = dom.find(Tooltip)
   expect([tooltip.prop("visible"), tooltip.prop("title")]).toEqual([
     true,
     "Copied!",
+  ])
+})
+
+test("Copy failure message", async () => {
+  let rejectClipboardPromise: () => void
+  const clipboardPromise = new Promise<void>((_, reject) => {
+    rejectClipboardPromise = reject
+  })
+  sandbox.stub(clipboard, "writeText").returns(clipboardPromise)
+  const dom = mount(<OutputView value={lorem.words()} />)
+  dom.find("#btn-copy").first().simulate("click")
+  await act(async () => {
+    rejectClipboardPromise()
+  })
+  dom.update()
+  const tooltip = dom.find(Tooltip)
+  expect([tooltip.prop("visible"), tooltip.prop("title")]).toEqual([
+    true,
+    "Can't copy!",
   ])
 })

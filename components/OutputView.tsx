@@ -14,7 +14,11 @@ const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   return (
     <span className="span-copy">
       <span>
-        <Tooltip title={status ? "Copied!" : ""} visible={true} trigger={[]}>
+        <Tooltip
+          title={status ? "Copied!" : "Can't copy!"}
+          visible={true}
+          trigger={[]}
+        >
           <Button
             id="btn-copy"
             onClick={async () => {
