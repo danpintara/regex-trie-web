@@ -46,6 +46,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "antd": "^4.2.4",
     "dayjs": "^1.8.27",
     "escape-string-regexp": "^4.0.0",

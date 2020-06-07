@@ -14,3 +14,8 @@ test("Sample is shown if value is missing", () => {
   const dom = shallow(<OutputView sampleValue={sampleValue} />)
   expect(dom.contains(sampleValue)).toBeTruthy()
 })
+
+test("Show copy button", () => {
+  const dom = shallow(<OutputView value={lorem.words()} />)
+  expect(dom.exists("#copy")).toBeTruthy()
+})

@@ -1,3 +1,5 @@
+import { CopyOutlined } from "@ant-design/icons"
+import { Button } from "antd"
 import React from "react"
 
 interface Props {
@@ -7,9 +9,27 @@ interface Props {
 
 const OutputView: React.FunctionComponent<Props> = function (props) {
   return (
-    <pre className={props.value ? null : "sample"}>
-      {props.value ?? props.sampleValue}
+    <div className="container">
+      <pre className={props.value ? null : "pre-sample"}>
+        {props.value ?? props.sampleValue}
+      </pre>
+      <span className="span-copy">
+        <span>
+          <Button id="copy">
+            <CopyOutlined />
+          </Button>
+        </span>
+      </span>
       <style jsx>{`
+        .container {
+          display: flex;
+        }
+        .span-copy {
+          width: 0;
+        }
+        .span-copy > span {
+          margin-left: 8px;
+        }
         pre {
           padding: 8px;
           background-color: #f0f0f0;
@@ -19,11 +39,11 @@ const OutputView: React.FunctionComponent<Props> = function (props) {
           white-space: pre-wrap;
           overflow-wrap: break-word;
         }
-        .sample {
+        .pre-sample {
           color: #b0b0b0;
         }
       `}</style>
-    </pre>
+    </div>
   )
 }
 
