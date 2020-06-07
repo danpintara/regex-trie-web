@@ -10,7 +10,7 @@ interface Props {
 
 const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   const [status, setStatus] = useState<boolean>(false)
-  const [visible, setVisible] = useState<boolean>(false)
+  const [visible, setVisible] = useState<{} | false>(false)
 
   useEffect(() => {
     if (visible) {
@@ -26,7 +26,7 @@ const CopyButton: FC<{ valueToCopy: string }> = function (props) {
       <span>
         <Tooltip
           title={status ? "Copied!" : "Can't copy!"}
-          visible={visible}
+          visible={!!visible}
           trigger={[]}
         >
           <Button
@@ -39,7 +39,7 @@ const CopyButton: FC<{ valueToCopy: string }> = function (props) {
                 console.log("Unable to copy: " + e)
                 setStatus(false)
               } finally {
-                setVisible(true)
+                setVisible({})
               }
             }}
           >
