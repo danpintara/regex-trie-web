@@ -86,3 +86,25 @@ test("Copy failure message", async () => {
     "Can't copy!",
   ])
 })
+
+jest.useFakeTimers()
+
+test("Hide message after timeout", async () => {
+  let resolveClipboardPromise: () => void
+  const clipboardPromise = new Promise<void>((resolve) => {
+    resolveClipboardPromise = resolve
+  })
+  sandbox.stub(clipboard, "writeText").returns(clipboardPromise)
+  const dom = mount(<OutputView value={lorem.words()} />)
+  dom.find("#btn-copy").first().simulate("click")
+  await act(async () => {
+    resolveClipboardPromise()
+  })
+  act(() => jest.runOnlyPendingTimers())
+  dom.update()
+  const tooltip = dom.find(Tooltip)
+  expect([tooltip.prop("visible"), tooltip.prop("title")]).toEqual([
+    false,
+    "Copied!",
+  ])
+})

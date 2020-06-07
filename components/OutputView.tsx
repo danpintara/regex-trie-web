@@ -1,7 +1,7 @@
 import { CopyOutlined } from "@ant-design/icons"
 import { Button, Tooltip } from "antd"
 import { writeText } from "clipboard-polyfill"
-import React, { FC, useState } from "react"
+import React, { FC, useEffect, useState } from "react"
 
 interface Props {
   value?: string
@@ -10,13 +10,23 @@ interface Props {
 
 const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   const [status, setStatus] = useState<boolean>(false)
+  const [visible, setVisible] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (visible) {
+      const handle = setTimeout(() => {
+        setVisible(false)
+      }, 1000)
+      return () => clearTimeout(handle)
+    }
+  })
 
   return (
     <span className="span-copy">
       <span>
         <Tooltip
           title={status ? "Copied!" : "Can't copy!"}
-          visible={true}
+          visible={visible}
           trigger={[]}
         >
           <Button
@@ -28,6 +38,8 @@ const CopyButton: FC<{ valueToCopy: string }> = function (props) {
               } catch (e) {
                 console.log("Unable to copy: " + e)
                 setStatus(false)
+              } finally {
+                setVisible(true)
               }
             }}
           >
