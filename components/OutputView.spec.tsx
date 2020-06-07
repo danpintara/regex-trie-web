@@ -1,6 +1,8 @@
+import clipboard from "clipboard-polyfill"
 import { mount, shallow } from "enzyme"
 import { lorem } from "faker"
 import React from "react"
+import { stub } from "sinon"
 import OutputView from "./OutputView"
 
 test("Text value is shown on screen", () => {
@@ -23,4 +25,12 @@ test("Show copy button", () => {
 test("Hide copy button if value is missing", () => {
   const dom = mount(<OutputView />)
   expect(dom.exists("#btn-copy")).toBeFalsy()
+})
+
+test("Copy button functionality", () => {
+  const value = lorem.words()
+  const writeTextStub = stub(clipboard, "writeText").resolves()
+  const dom = mount(<OutputView value={value} />)
+  dom.find("#btn-copy").first().simulate("click")
+  expect(writeTextStub.calledWith(value)).toBeTruthy()
 })

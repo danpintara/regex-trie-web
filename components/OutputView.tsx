@@ -1,5 +1,6 @@
 import { CopyOutlined } from "@ant-design/icons"
 import { Button } from "antd"
+import clipboard from "clipboard-polyfill"
 import React, { FC } from "react"
 
 interface Props {
@@ -7,11 +8,20 @@ interface Props {
   sampleValue?: string
 }
 
-const CopyButton: FC<{ valueToCopy: string }> = function () {
+const CopyButton: FC<{ valueToCopy: string }> = function (props) {
   return (
     <span className="span-copy">
       <span>
-        <Button id="btn-copy">
+        <Button
+          id="btn-copy"
+          onClick={async () => {
+            try {
+              await clipboard.writeText(props.valueToCopy)
+            } catch (e) {
+              console.log("Unable to copy: " + e)
+            }
+          }}
+        >
           <CopyOutlined />
         </Button>
       </span>

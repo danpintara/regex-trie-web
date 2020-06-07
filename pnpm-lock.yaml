@@ -1,6 +1,7 @@
 dependencies:
   '@ant-design/icons': 4.2.1_react@16.13.1
   antd: 4.2.4_74b65dd3c828010c39c05cee1d7790e9
+  clipboard-polyfill: 2.8.6
   dayjs: 1.8.27
   escape-string-regexp: 4.0.0
   next: 9.4.1_af9fa062b6a4bfe9ae4185908f81044b
@@ -3390,6 +3391,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==
+  /clipboard-polyfill/2.8.6:
+    dev: false
+    resolution:
+      integrity: sha512-kz/1ov+PXsBpGnW9XJH3dLWdYj12FpXqO89Dngm/GRPoI36E/tnYs6N0YPTEhxM9WHAlFiN5eoyIVuv5nzKXvg==
   /cliui/6.0.0:
     dependencies:
       string-width: 4.2.0
@@ -11337,6 +11342,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^2.34.0
   '@typescript-eslint/parser': ^2.34.0
   antd: ^4.2.4
+  clipboard-polyfill: ^2.8.6
   dayjs: ^1.8.27
   enzyme: ^3.11.0
   enzyme-adapter-react-16: ^1.15.2

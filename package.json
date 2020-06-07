@@ -48,6 +48,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4.2.4",
+    "clipboard-polyfill": "^2.8.6",
     "dayjs": "^1.8.27",
     "escape-string-regexp": "^4.0.0",
     "next": "^9.4.1",
