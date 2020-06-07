@@ -13,13 +13,15 @@ const OutputView: React.FunctionComponent<Props> = function (props) {
       <pre className={props.value ? null : "pre-sample"}>
         {props.value ?? props.sampleValue}
       </pre>
-      <span className="span-copy">
-        <span>
-          <Button id="copy">
-            <CopyOutlined />
-          </Button>
+      {props.value ? (
+        <span className="span-copy">
+          <span>
+            <Button id="btn-copy">
+              <CopyOutlined />
+            </Button>
+          </span>
         </span>
-      </span>
+      ) : null}
       <style jsx>{`
         .container {
           display: flex;
