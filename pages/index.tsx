@@ -1,5 +1,5 @@
-import { Switch } from "antd"
-import React, { useState } from "react"
+import { Input, Switch } from "antd"
+import React, { RefObject, useEffect, useRef, useState } from "react"
 import OutputView from "../components/OutputView"
 import TextInput from "../components/TextInput"
 import { generate } from "../lib/generator"
@@ -12,6 +12,13 @@ abde
 export default function index() {
   const [value, setValue] = useState("")
   const [useNonCapturingGroup, setUseNonCapturingGroup] = useState(true)
+  const textInputRef = useRef() as RefObject<
+    InstanceType<typeof Input.TextArea>
+  >
+
+  useEffect(() => {
+    textInputRef.current?.focus()
+  }, [])
 
   return (
     <div className="container">
@@ -20,6 +27,7 @@ export default function index() {
       </div>
       <div className="expand">
         <TextInput
+          ref={textInputRef}
           value={value}
           sampleValue={sampleInput}
           onChange={setValue}

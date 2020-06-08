@@ -1,5 +1,5 @@
 import { Input } from "antd"
-import React, { Fragment } from "react"
+import React, { forwardRef, Fragment } from "react"
 import css from "styled-jsx/css"
 
 interface Props {
@@ -14,18 +14,22 @@ const textAreaStyle = css.resolve`
   }
 `
 
-const TextInput: React.FunctionComponent<Props> = function (props) {
-  return (
-    <Fragment>
-      <Input.TextArea
-        className={`${textAreaStyle.className} input`}
-        onChange={(e) => props.onChange && props.onChange(e.target.value)}
-        value={props.value}
-        placeholder={props.sampleValue}
-      />
-      {textAreaStyle.styles}
-    </Fragment>
-  )
-}
+const TextInput = forwardRef<InstanceType<typeof Input.TextArea>, Props>(
+  (props, ref) => {
+    return (
+      <Fragment>
+        <Input.TextArea
+          ref={ref}
+          className={`${textAreaStyle.className} input`}
+          onChange={(e) => props.onChange && props.onChange(e.target.value)}
+          value={props.value}
+          placeholder={props.sampleValue}
+        />
+        {textAreaStyle.styles}
+      </Fragment>
+    )
+  }
+)
+TextInput.displayName = "TextInput"
 
 export default TextInput
