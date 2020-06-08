@@ -83,7 +83,7 @@ const pageStyle = css.resolve`
 
 class MainApp extends App {
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, router } = this.props
 
     return (
       <React.Fragment>
@@ -97,7 +97,7 @@ class MainApp extends App {
             timeout={200}
             classNames={`${pageStyle.className} anim`}
           >
-            <Component {...pageProps} />
+            <Component key={router.route} {...pageProps} />
           </PageTransition>
         </div>
         <style jsx>

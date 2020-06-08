@@ -91,7 +91,7 @@ const OutputView: FC<Props> = function (props) {
           classNames={`${animatedButtonStyle.className} anim`}
           unmountOnExit
         >
-          <CopyButton valueToCopy={props.value ?? ""} />
+          <CopyButton key="button" valueToCopy={props.value ?? ""} />
         </CSSTransition>
       </span>
       {animatedButtonStyle.styles}
