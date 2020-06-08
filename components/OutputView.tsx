@@ -105,9 +105,8 @@ const OutputView: FC<Props> = function (props) {
           }
           pre {
             padding: 8px;
+            flex-grow: 1;
             background-color: #f0f0f0;
-            width: 300px;
-            max-width: 400px;
             min-height: 200px;
             white-space: pre-wrap;
             overflow-wrap: break-word;

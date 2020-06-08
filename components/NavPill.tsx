@@ -13,38 +13,14 @@ const NavPill: FC<Props> = function (props) {
   return (
     <Measure client onResize={(r) => setRootClient(r.client)}>
       {({ measureRef }) => (
-        <div ref={measureRef} style={{ position: "relative" }}>
-          <style jsx>
-            {`
-              .f-f {
-                transition: left 0.4s, right 0.4s 0.1s, top 0.4s,
-                  bottom 0.4s 0.1s;
-              }
-              .f-l {
-                transition: left 0.4s, right 0.4s 0.1s, top 0.4s 0.1s,
-                  bottom 0.4s;
-              }
-              .l-f {
-                transition: left 0.4s 0.1s, right 0.4s, top 0.4s,
-                  bottom 0.4s 0.1s;
-              }
-              .l-l {
-                transition: left 0.4s 0.1s, right 0.4s, top 0.4s 0.1s,
-                  bottom 0.4s;
-              }
-            `}
-          </style>
+        <div ref={measureRef} className="container">
           {offset && rootClient ? (
             <span
               ref={spanRef}
-              className={`${
+              className={`nav-pill ${
                 spanRef.current?.offsetLeft > offset.left ? "f" : "l"
               }-${spanRef.current?.offsetTop > offset.top ? "f" : "l"}`}
               style={{
-                position: "absolute",
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                zIndex: -1,
                 top: offset.top - 7,
                 left: offset.left - 7,
                 bottom: rootClient.height - (offset.top + offset.height) - 7,
@@ -68,6 +44,35 @@ const NavPill: FC<Props> = function (props) {
             }
             return c
           })}
+          <style jsx>
+            {`
+              .f-f {
+                transition: left 0.4s, right 0.4s 0.1s, top 0.4s,
+                  bottom 0.4s 0.1s;
+              }
+              .f-l {
+                transition: left 0.4s, right 0.4s 0.1s, top 0.4s 0.1s,
+                  bottom 0.4s;
+              }
+              .l-f {
+                transition: left 0.4s 0.1s, right 0.4s, top 0.4s,
+                  bottom 0.4s 0.1s;
+              }
+              .l-l {
+                transition: left 0.4s 0.1s, right 0.4s, top 0.4s 0.1s,
+                  bottom 0.4s;
+              }
+              .container {
+                position: relative;
+              }
+              .nav-pill {
+                background-color: #e0e0e0;
+                border-radius: 500px;
+                position: absolute;
+                z-index: -1;
+              }
+            `}
+          </style>
         </div>
       )}
     </Measure>

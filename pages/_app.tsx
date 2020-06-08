@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import React from "react"
 import GitHubForkRibbon from "react-github-fork-ribbon"
+import css from "styled-jsx/css"
 import NavPill from "../components/NavPill"
 
 function ForkRibbon() {
@@ -38,7 +39,7 @@ function TabNavigation() {
       <Link key="home" href="/">
         <a className={activeKey == "home" ? "selected" : ""}>Home</a>
       </Link>
-      <span style={{ display: "inline-block", width: 24 }} />
+      <span className="divider" />
       <Link key="about" href="/about">
         <a className={activeKey == "about" ? "selected" : ""}>About</a>
       </Link>
@@ -53,11 +54,32 @@ function TabNavigation() {
           .selected {
             color: #000000;
           }
+          .divider {
+            display: inline-block;
+            width: 24px;
+          }
         `}
       </style>
     </NavPill>
   )
 }
+
+const pageStyle = css.resolve`
+  .anim-enter {
+    opacity: 0;
+  }
+  .anim-enter-active {
+    opacity: 1;
+    transition: opacity 300ms;
+  }
+  .anim-exit {
+    opacity: 1;
+  }
+  .anim-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+`
 
 class MainApp extends App {
   render() {
@@ -66,55 +88,43 @@ class MainApp extends App {
     return (
       <React.Fragment>
         <ForkRibbon />
-        <div
-          style={{
-            padding: 32,
-            margin: "auto",
-            maxWidth: 720,
-          }}
-        >
-          <h1
-            style={{
-              width: "100%",
-              textAlign: "center",
-              paddingLeft: 72,
-              paddingRight: 72,
-              marginBottom: 24,
-            }}
-          >
-            Regular Expression from Trie
-          </h1>
-          <div
-            style={{
-              width: "100%",
-              marginBottom: 32,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
+        <div className="container">
+          <h1 className="full-width title">Regular Expression from Trie</h1>
+          <div className="full-width nav">
             <TabNavigation />
           </div>
-          <PageTransition timeout={300} classNames="page-transition">
+          <PageTransition
+            timeout={300}
+            classNames={`${pageStyle.className} anim`}
+          >
             <Component {...pageProps} />
           </PageTransition>
-          <style jsx global>{`
-            .page-transition-enter {
-              opacity: 0;
-            }
-            .page-transition-enter-active {
-              opacity: 1;
-              transition: opacity 300ms;
-            }
-            .page-transition-exit {
-              opacity: 1;
-            }
-            .page-transition-exit-active {
-              opacity: 0;
-              transition: opacity 300ms;
-            }
-          `}</style>
         </div>
+        <style jsx>
+          {`
+            .container {
+              padding: 32px;
+              margin: auto;
+              max-width: 720px;
+            }
+            .nav {
+              margin-bottom: 32px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            .title {
+              text-align: center;
+              padding-left: 72px;
+              padding-right: 72px;
+              margin-bottom: 24px;
+            }
+            .full-width {
+              width: 100%;
+            }
+          `}
+        </style>
+        {pageStyle.styles}
       </React.Fragment>
     )
   }
