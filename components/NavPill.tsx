@@ -55,20 +55,20 @@ const NavPill: FC<Props> = function (props) {
           <style jsx>
             {`
               .f-f {
-                transition: left 0.4s, right 0.4s 0.1s, top 0.4s,
-                  bottom 0.4s 0.1s;
+                transition: left 400ms, right 400ms 0.1s, top 400ms,
+                  bottom 400ms 0.1s;
               }
               .f-l {
-                transition: left 0.4s, right 0.4s 0.1s, top 0.4s 0.1s,
-                  bottom 0.4s;
+                transition: left 400ms, right 400ms 0.1s, top 400ms 0.1s,
+                  bottom 400ms;
               }
               .l-f {
-                transition: left 0.4s 0.1s, right 0.4s, top 0.4s,
-                  bottom 0.4s 0.1s;
+                transition: left 400ms 0.1s, right 400ms, top 400ms,
+                  bottom 400ms 0.1s;
               }
               .l-l {
-                transition: left 0.4s 0.1s, right 0.4s, top 0.4s 0.1s,
-                  bottom 0.4s;
+                transition: left 400ms 0.1s, right 400ms, top 400ms 0.1s,
+                  bottom 400ms;
               }
               .container {
                 position: relative;

@@ -65,7 +65,7 @@ const animatedButtonStyle = css.resolve`
   .anim-enter-active {
     opacity: 1;
     transform: translate(0, 0);
-    transition: all 0.3s;
+    transition: all 300ms;
   }
   .anim-exit {
     opacity: 1;
@@ -74,7 +74,7 @@ const animatedButtonStyle = css.resolve`
   .anim-exit-active {
     opacity: 0;
     transform: translate(-8px, 0);
-    transition: all 0.3s;
+    transition: all 300ms;
   }
 `
 

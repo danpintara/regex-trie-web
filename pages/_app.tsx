@@ -70,14 +70,14 @@ const pageStyle = css.resolve`
   }
   .anim-enter-active {
     opacity: 1;
-    transition: opacity 300ms;
+    transition: opacity 200ms;
   }
   .anim-exit {
     opacity: 1;
   }
   .anim-exit-active {
     opacity: 0;
-    transition: opacity 300ms;
+    transition: opacity 200ms;
   }
 `
 
@@ -94,7 +94,7 @@ class MainApp extends App {
             <TabNavigation />
           </div>
           <PageTransition
-            timeout={300}
+            timeout={200}
             classNames={`${pageStyle.className} anim`}
           >
             <Component {...pageProps} />
