@@ -20,6 +20,7 @@ devDependencies:
   '@mdx-js/loader': 1.6.5_react@16.13.1
   '@next/mdx': 9.4.4_@mdx-js+loader@1.6.5
   '@types/enzyme': 3.10.5
+  '@types/enzyme-adapter-react-16': 1.0.6
   '@types/faker': 4.1.12
   '@types/jest': 25.2.3
   '@types/node': 14.0.4
@@ -2106,6 +2107,12 @@ packages:
   /@types/color-name/1.1.1:
     resolution:
       integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+  /@types/enzyme-adapter-react-16/1.0.6:
+    dependencies:
+      '@types/enzyme': 3.10.5
+    dev: true
+    resolution:
+      integrity: sha512-VonDkZ15jzqDWL8mPFIQnnLtjwebuL9YnDkqeCDYnB4IVgwUm0mwKkqhrxLL6mb05xm7qqa3IE95m8CZE9imCg==
   /@types/enzyme/3.10.5:
     dependencies:
       '@types/cheerio': 0.22.18
@@ -11593,6 +11600,7 @@ specifiers:
   '@mdx-js/loader': ^1.6.5
   '@next/mdx': ^9.4.4
   '@types/enzyme': ^3.10.5
+  '@types/enzyme-adapter-react-16': ^1.0.6
   '@types/faker': ^4.1.12
   '@types/jest': ^25.2.3
   '@types/node': ^14.0.4
