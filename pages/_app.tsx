@@ -1,4 +1,3 @@
-import "antd/dist/antd.css"
 import { PageTransition } from "next-page-transitions"
 import App from "next/app"
 import Link from "next/link"
@@ -6,6 +5,7 @@ import { useRouter } from "next/router"
 import React from "react"
 import GitHubForkRibbon from "react-github-fork-ribbon"
 import css from "styled-jsx/css"
+import "../assets/antd-custom.less"
 import NavPill from "../components/NavPill"
 
 function ForkRibbon() {
