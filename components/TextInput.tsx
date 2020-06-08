@@ -19,7 +19,7 @@ const TextInput: React.FunctionComponent<Props> = function (props) {
     <Fragment>
       <Input.TextArea
         className={`${textAreaStyle.className} input`}
-        onChange={(e) => props.onChange(e.target.value)}
+        onChange={(e) => props.onChange && props.onChange(e.target.value)}
         value={props.value}
         placeholder={props.sampleValue}
       />

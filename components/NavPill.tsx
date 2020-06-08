@@ -1,4 +1,4 @@
-import React, { Children, FC, useRef, useState } from "react"
+import React, { Children, FC, RefObject, useRef, useState } from "react"
 import Measure, { Rect } from "react-measure"
 
 interface Props {
@@ -8,7 +8,11 @@ interface Props {
 const NavPill: FC<Props> = function (props) {
   const [rootClient, setRootClient] = useState<Rect | undefined>(undefined)
   const [offset, setOffset] = useState<Rect | undefined>(undefined)
-  const spanRef = useRef<HTMLSpanElement>()
+  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/35572
+  const spanRef = useRef<HTMLSpanElement>() as RefObject<HTMLSpanElement>
+
+  const previousOffsetLeft = spanRef.current?.offsetLeft
+  const previousOffsetTop = spanRef.current?.offsetTop
 
   return (
     <Measure client onResize={(r) => setRootClient(r.client)}>
@@ -18,8 +22,12 @@ const NavPill: FC<Props> = function (props) {
             <span
               ref={spanRef}
               className={`nav-pill ${
-                spanRef.current?.offsetLeft > offset.left ? "f" : "l"
-              }-${spanRef.current?.offsetTop > offset.top ? "f" : "l"}`}
+                previousOffsetLeft && previousOffsetLeft > offset.left
+                  ? "f"
+                  : "l"
+              }-${
+                previousOffsetTop && previousOffsetTop > offset.top ? "f" : "l"
+              }`}
               style={{
                 top: offset.top - 7,
                 left: offset.left - 7,
@@ -29,7 +37,7 @@ const NavPill: FC<Props> = function (props) {
             />
           ) : null}
           {Children.map(props.children, (c) => {
-            if (typeof c === "object" && "key" in c) {
+            if (typeof c === "object" && c != null && "key" in c) {
               if (c.key == props.activeKey) {
                 return (
                   <Measure offset onResize={(r) => setOffset(r.offset)}>

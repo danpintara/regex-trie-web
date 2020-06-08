@@ -81,7 +81,7 @@ const animatedButtonStyle = css.resolve`
 const OutputView: FC<Props> = function (props) {
   return (
     <div className="container">
-      <pre className={props.value ? null : "pre-sample"}>
+      <pre className={props.value ? undefined : "pre-sample"}>
         {props.value ?? props.sampleValue}
       </pre>
       <span className="container-copy">
@@ -91,7 +91,7 @@ const OutputView: FC<Props> = function (props) {
           classNames={`${animatedButtonStyle.className} anim`}
           unmountOnExit
         >
-          <CopyButton valueToCopy={props.value} />
+          <CopyButton valueToCopy={props.value ?? ""} />
         </CSSTransition>
       </span>
       {animatedButtonStyle.styles}
