@@ -40,7 +40,7 @@ test("Show sample output", () => {
   const dom = mount(<IndexPage />)
   const sampleInput = dom.find(TextInput).prop("sampleValue")
   expect(dom.find(OutputView).prop("sampleValue")).toEqual(
-    generate(sampleInput.split("\n"), true)
+    generate(sampleInput?.split("\n") ?? [], true)
   )
 })
 
@@ -49,6 +49,6 @@ test("Show sample output with capturing group", () => {
   const sampleInput = dom.find(TextInput).prop("sampleValue")
   dom.find(Switch).simulate("click")
   expect(dom.find(OutputView).prop("sampleValue")).toEqual(
-    generate(sampleInput.split("\n"), false)
+    generate(sampleInput?.split("\n") ?? [], false)
   )
 })

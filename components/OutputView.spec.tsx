@@ -100,7 +100,9 @@ test("Hide message after timeout", async () => {
   await act(async () => {
     resolveClipboardPromise()
   })
-  act(() => jest.runOnlyPendingTimers())
+  act(() => {
+    jest.runOnlyPendingTimers()
+  })
   dom.update()
   const tooltip = dom.find(Tooltip)
   expect([tooltip.prop("visible"), tooltip.prop("title")]).toEqual([
