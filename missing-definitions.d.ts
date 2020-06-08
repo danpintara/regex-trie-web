@@ -8,3 +8,9 @@ declare module "react-github-fork-ribbon" {
   const GitHubForkRibbon: any
   export default GitHubForkRibbon
 }
+
+declare module "regex-trie" {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const RegexTrie: any
+  export default RegexTrie
+}
