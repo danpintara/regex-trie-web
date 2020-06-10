@@ -2,9 +2,7 @@
 
 [![GitHub Action Status](https://github.com/danpintara/regex-trie-web/workflows/publish/badge.svg)](https://github.com/danpintara/regex-trie-web/actions?query=workflow%3Apublish)
 
-Generate a regular expression which matches all of the specified lines, powered by Trie algorithm.
-
-Example input:
+Generate a regular expression which matches all of the specified lines, powered by Trie algorithm. Sample input:
 
 ```
 abcd
@@ -17,7 +15,7 @@ Generated regular expression which matches all of the specified lines would be:
 ab(?:cd|de)
 ```
 
-This tool is intended to generate regular expression from a list of Prometheus label values, so AlertManager silencing rule can be easily made using it. See the [about page](https://danpintara.github.io/regex-trie-web/about).
+This tool is intended to generate regular expression from a list of [Prometheus](https://prometheus.io) label values, so [AlertManager](https://prometheus.io/docs/alerting/alertmanager) silencing rule can be easily made using it. See the [about page](https://danpintara.github.io/regex-trie-web/about).
 
 Feel free to use this tool for other reasons, including escaping single line regular expression. :stuck_out_tongue_closed_eyes:
 
@@ -42,7 +40,7 @@ Fetch dependencies of this project after `git clone`:
 pnpm i --shamefully-hoist
 ```
 
-**Note:** `--shamefully-hoist` is not recommended but is currently required for `.mdx` to be compiled successfully.
+**Note:** `--shamefully-hoist` is not recommended but is currently required for `.mdx`-backed pages to be compiled successfully.
 
 ### Tests
 
@@ -68,15 +66,19 @@ pnpm run dev
 
 Local development site will be served on `localhost:3000`.
 
-### Build
+### Publish
 
-To build the project for static serving:
+[GitHub Workflow](.github/workflows/publish.yml) has been configured to build and publish this project as GitHub Pages.
+
+To do a manual build:
 
 ```
 pnpm run build
 ```
 
-Reference: [publish workflow](.github/workflows/publish.yml).
+## Contributing
+
+Contributions are welcomed and can be done by forking and creating [pull requests](https://github.com/danpintara/regex-trie-web/compare). Take a look at [good first issues](https://github.com/danpintara/regex-trie-web/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) here.
 
 ## License
 
