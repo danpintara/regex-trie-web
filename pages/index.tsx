@@ -40,7 +40,7 @@ export default function index() {
           onChange={(val) => setUseNonCapturingGroup(val)}
         />
       </div>
-      <div>Regular expression:</div>
+      <div className="adjust-top">Regular expression:</div>
       <div className="expand">
         <OutputView
           value={generate(value.split("\n"), useNonCapturingGroup)}
@@ -61,6 +61,9 @@ export default function index() {
           }
           .container > * {
             margin-bottom: 24px;
+          }
+          .adjust-top {
+            margin-top: 16px;
           }
           .expand {
             align-self: stretch;

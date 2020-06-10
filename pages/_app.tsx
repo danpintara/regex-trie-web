@@ -56,7 +56,7 @@ function TabNavigation() {
           }
           .divider {
             display: inline-block;
-            width: 24px;
+            width: 28px;
           }
         `}
       </style>
@@ -108,7 +108,7 @@ class MainApp extends App {
               max-width: 720px;
             }
             .nav {
-              margin-bottom: 32px;
+              margin-bottom: 48px;
               display: flex;
               flex-direction: column;
               align-items: center;
@@ -117,7 +117,7 @@ class MainApp extends App {
               text-align: center;
               padding-left: 72px;
               padding-right: 72px;
-              margin-bottom: 24px;
+              margin-bottom: 28px;
             }
             .full-width {
               width: 100%;
