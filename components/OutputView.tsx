@@ -109,7 +109,7 @@ const OutputView: FC<Props> = function (props) {
             background-color: #f0f0f0;
             min-height: 200px;
             white-space: pre-wrap;
-            overflow-wrap: break-word;
+            word-break: break-all;
           }
           .pre-sample {
             color: #b0b0b0;
